@@ -2,8 +2,13 @@
   "name": "fakescript-vscode",
   "displayName": "FakeScript",
   "description": "Syntax highlighting, language configuration, and snippets for FakeScript (.fks) — the strictly zero-symbol AOT programming language.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "ChaiMaii",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#292d3e",
+    "theme": "dark"
+  },
   "license": "WTFPL",
   "repository": {
     "type": "git",
