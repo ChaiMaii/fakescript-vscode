@@ -1,0 +1,148 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "FakeScript",
+  "scopeName": "source.fakescript",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#illegal-symbols" },
+    { "include": "#imports" },
+    { "include": "#function-decl" },
+    { "include": "#function-call" },
+    { "include": "#module-call" },
+    { "include": "#types" },
+    { "include": "#control-keywords" },
+    { "include": "#operators" },
+    { "include": "#statement-keywords" },
+    { "include": "#booleans" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.note.fakescript",
+          "match": "^\\s*note(?:\\s.*)?$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.other.fakescript",
+          "begin": "\\bsay\\b",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.fakescript" }
+          },
+          "end": "\\bend\\b",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.fakescript" }
+          }
+        }
+      ]
+    },
+    "illegal-symbols": {
+      "patterns": [
+        {
+          "name": "invalid.illegal.symbol.fakescript",
+          "match": "[^A-Za-z0-9\\s]+"
+        }
+      ]
+    },
+    "imports": {
+      "patterns": [
+        {
+          "match": "\\b(import)\\s+(print|math|text|file|time)\\b(?:\\s+(as)\\s+([A-Za-z][A-Za-z0-9]*))?",
+          "captures": {
+            "1": { "name": "keyword.control.import.fakescript" },
+            "2": { "name": "support.class.module.fakescript" },
+            "3": { "name": "keyword.control.as.fakescript" },
+            "4": { "name": "variable.other.module.fakescript" }
+          }
+        }
+      ]
+    },
+    "function-decl": {
+      "patterns": [
+        {
+          "match": "\\b(fn)\\s+([A-Za-z][A-Za-z0-9]*)",
+          "captures": {
+            "1": { "name": "storage.type.function.fakescript" },
+            "2": { "name": "entity.name.function.fakescript" }
+          }
+        }
+      ]
+    },
+    "function-call": {
+      "patterns": [
+        {
+          "match": "\\b(exec)\\s+([A-Za-z][A-Za-z0-9]*)",
+          "captures": {
+            "1": { "name": "keyword.control.exec.fakescript" },
+            "2": { "name": "entity.name.function.fakescript" }
+          }
+        }
+      ]
+    },
+    "module-call": {
+      "patterns": [
+        {
+          "match": "\\b(?!item\\b|length\\b|list\\b)([A-Za-z][A-Za-z0-9]*)\\s+(of)\\s+([A-Za-z][A-Za-z0-9]*)\\b",
+          "captures": {
+            "1": { "name": "entity.name.function.method.fakescript" },
+            "2": { "name": "keyword.operator.of.fakescript" },
+            "3": { "name": "support.class.module.fakescript" }
+          }
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.fakescript",
+          "match": "\\b(?:empty\\s+list\\s+of|list\\s+of|num|text|flag|action)\\b"
+        }
+      ]
+    },
+    "control-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.fakescript",
+          "match": "\\b(?:else\\s+if|if|else|loop\\s+when|loop\\s+from|for\\s+each|give\\s+back|do|end|stop|skip|in|to|as|returns)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.fakescript",
+          "match": "\\b(?:is\\s+not|is\\s+under|is\\s+over|is\\s+at\\s+least|is\\s+at\\s+most|is|divided\\s+by|plus|minus|times|over|mod|remainder|negative|not|and|or)\\b"
+        }
+      ]
+    },
+    "statement-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.other.fakescript",
+          "match": "\\b(?:let|be|set|append|ask|into|with|contains|item|length|of|group|done)\\b"
+        }
+      ]
+    },
+    "booleans": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.fakescript",
+          "match": "\\b(?:true|false|yes|no)\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.integer.fakescript",
+          "match": "\\b[0-9]+\\b"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "comments": {
+    "lineComment": "note "
+  },
+  "brackets": [],
+  "autoClosingPairs": [],
+  "surroundingPairs": [],
+  "wordPattern": "[A-Za-z0-9]+",
+  "indentationRules": {
+    "increaseIndentPattern": "\\bdo\\s*$",
+    "decreaseIndentPattern": "^\\s*(end|else\\b)\\b"
+  },
+  "folding": {
+    "markers": {
+      "start": "\\bdo\\s*$",
+      "end": "^\\s*end\\s*$"
+    }
+  }
+}

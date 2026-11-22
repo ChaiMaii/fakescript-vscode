@@ -1,0 +1,93 @@
+{
+  "Print Line": {
+    "prefix": "pln",
+    "body": "ln of print contains say ${1:hello} end",
+    "description": "Print a line using the print module"
+  },
+  "Function (Void)": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name} do",
+      "    ${2:ln of print contains say hello end}",
+      "end"
+    ],
+    "description": "Define a FakeScript function"
+  },
+  "Function (Typed Return)": {
+    "prefix": "fnr",
+    "body": [
+      "fn ${1:add} with ${2:num} ${3:a} and ${4:num} ${5:b} returns ${6:num} do",
+      "    give back ${3:a} plus ${5:b}",
+      "end"
+    ],
+    "description": "Define a typed FakeScript function with a return value"
+  },
+  "If Block": {
+    "prefix": "if",
+    "body": [
+      "if ${1:x} is ${2:0} do",
+      "    $0",
+      "end"
+    ],
+    "description": "Conditional if block"
+  },
+  "If / Else Block": {
+    "prefix": "ife",
+    "body": [
+      "if ${1:x} is ${2:0} do",
+      "    $3",
+      "else do",
+      "    $0",
+      "end"
+    ],
+    "description": "Conditional if / else block"
+  },
+  "While Loop": {
+    "prefix": "loopw",
+    "body": [
+      "loop when ${1:i} is under ${2:10} do",
+      "    $0",
+      "    set ${1:i} to ${1:i} plus 1",
+      "end"
+    ],
+    "description": "Conditional loop when block"
+  },
+  "Range Loop": {
+    "prefix": "loopr",
+    "body": [
+      "loop from ${1:0} to ${2:10} as ${3:i} do",
+      "    $0",
+      "end"
+    ],
+    "description": "Counted range loop"
+  },
+  "For Each Loop": {
+    "prefix": "each",
+    "body": [
+      "for each ${1:item} in ${2:items} do",
+      "    $0",
+      "end"
+    ],
+    "description": "Iterate over a list"
+  },
+  "Ask Input": {
+    "prefix": "ask",
+    "body": "ask say ${1:Prompt } end into ${2:input}",
+    "description": "Prompt user for standard input"
+  },
+  "Main Skeleton": {
+    "prefix": "main",
+    "body": [
+      "note ${1:FakeScript program}",
+      "",
+      "import print",
+      "",
+      "fn main do",
+      "    ${2:ln of print contains say hello world end}",
+      "end",
+      "",
+      "exec main"
+    ],
+    "description": "Create a FakeScript main entry point"
+  }
+}

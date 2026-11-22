@@ -1,0 +1,53 @@
+{
+  "name": "fakescript-vscode",
+  "displayName": "FakeScript",
+  "description": "Syntax highlighting, language configuration, and snippets for FakeScript (.fks) — the strictly zero-symbol AOT programming language.",
+  "version": "0.1.0",
+  "publisher": "ChaiMaii",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChaiMaii/fakescript-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "fakescript",
+    "fks",
+    "zero-symbol",
+    "syntax-highlighting"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "fakescript",
+        "aliases": [
+          "FakeScript",
+          "fakescript"
+        ],
+        "extensions": [
+          ".fks"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fakescript",
+        "scopeName": "source.fakescript",
+        "path": "./syntaxes/fakescript.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "fakescript",
+        "path": "./snippets/fakescript.code-snippets"
+      }
+    ]
+  }
+}
