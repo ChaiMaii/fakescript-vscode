@@ -39,7 +39,11 @@ jobs:
         run: npx --yes @vscode/vsce publish --oidc
 
       - name: Publish to Open VSX Registry (optional)
-        if: ${{ secrets.OVSX_PAT != '' }}
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        run: npx --yes ovsx publish -p "$OVSX_PAT"
+        run: |
+          if [ -n "$OVSX_PAT" ]; then
+            npx --yes ovsx publish -p "$OVSX_PAT"
+          else
+            echo "OVSX_PAT not set; skipping Open VSX publish."
+          fi
