@@ -4,7 +4,7 @@
   "description": "Syntax highlighting, language configuration, and snippets for FakeScript (.fks) — the strictly zero-symbol AOT programming language.",
   "version": "0.1.0",
   "publisher": "ChaiMaii",
-  "license": "Apache-2.0",
+  "license": "WTFPL",
   "repository": {
     "type": "git",
     "url": "https://github.com/ChaiMaii/fakescript-vscode.git"

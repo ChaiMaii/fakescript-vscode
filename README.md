@@ -44,4 +44,4 @@ code --install-extension fakescript-vscode-0.1.0.vsix
 
 ## License
 
-Apache License 2.0
+Licensed under the [WTFPL](./LICENSE).
