@@ -10,10 +10,13 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
+    name: Publish to VS Code Marketplace
     runs-on: ubuntu-latest
+    environment: Prod
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,15 +35,8 @@ jobs:
           name: fakescript-vscode-vsix
           path: '*.vsix'
 
-      - name: Publish to VS Code Marketplace
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: |
-          if [ -z "$VSCE_PAT" ]; then
-            echo "::error::VSCE_PAT secret is not configured. Add your Azure DevOps Marketplace PAT as repository secret VSCE_PAT."
-            exit 1
-          fi
-          npx --yes @vscode/vsce publish -p "$VSCE_PAT"
+      - name: Publish to VS Code Marketplace (Trusted Publishing)
+        run: npx --yes @vscode/vsce publish --oidc
 
       - name: Publish to Open VSX Registry (optional)
         if: ${{ secrets.OVSX_PAT != '' }}
